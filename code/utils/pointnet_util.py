@@ -6,9 +6,9 @@ Date: November 2017
 
 import os
 import sys
-from tf_ops.sampling.tf_sampling import farthest_point_sample, gather_point
-from tf_ops.grouping.tf_grouping import query_ball_point, group_point, knn_point
-from tf_ops.interpolation.tf_interpolate import three_nn, three_interpolate
+from other_codes.punet.code.tf_ops.sampling.tf_sampling import farthest_point_sample, gather_point
+from other_codes.punet.code.tf_ops.grouping.tf_grouping import query_ball_point, group_point, knn_point
+from other_codes.punet.code.tf_ops.interpolation.tf_interpolate import three_nn, three_interpolate
 import tensorflow as tf
 import numpy as np
 import tf_util2
