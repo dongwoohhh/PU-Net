@@ -22,15 +22,15 @@ def load_patch_data(h5_filename='../h5_data/Patches_noHole_and_collected.h5', sk
     if use_randominput:
         print "use randominput, input h5 file is:", h5_filename
         f = h5py.File(h5_filename)
-        input = f['poisson_4096'][:]
-        gt = f['poisson_4096'][:]
+        input = f['pointcloud_gt'][:]
+        gt = f['pointcloud_gt'][:]
     else:
         print "Do not randominput, input h5 file is:",h5_filename
         f = h5py.File(h5_filename)
         gt = f['poisson_4096'][:]
         input = f['montecarlo_1024'][:]
 
-    name = f['name'][:]
+    name = f['sample_id'][:]
     assert len(input) == len(gt)
 
     if norm:
@@ -55,7 +55,7 @@ def load_patch_data(h5_filename='../h5_data/Patches_noHole_and_collected.h5', sk
 
     object_name = list(set([item.split('/')[-1].split('_')[0] for item in name]))
     object_name.sort()
-    print "load object names {}".format(object_name)
+    print "load h5 data names {}".format(os.path.basename(h5_filename))
     print "total %d samples" % (len(input))
     return input, gt, data_radius, name
 
