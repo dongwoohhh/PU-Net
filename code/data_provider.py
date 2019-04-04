@@ -57,6 +57,7 @@ def load_patch_data(h5_filename='../h5_data/Patches_noHole_and_collected.h5', sk
     object_name.sort()
     print "load h5 data names {}".format(os.path.basename(h5_filename))
     print "total %d samples" % (len(input))
+    
     return input, gt, data_radius, name
 
 
@@ -87,8 +88,9 @@ def rotate_point_cloud_and_gt(batch_data,batch_gt=None):
         # rotation_matrix = np.array([[cosval, 0, sinval],
         #                             [0, 1, 0],
         #                             [-sinval, 0, cosval]])
-
         batch_data[k, ..., 0:3] = np.dot(batch_data[k, ..., 0:3].reshape((-1, 3)), rotation_matrix)
+        
+        """For lidar data we use intensity, so no need to rotate 4-th channel."""
         if batch_data.shape[-1]>3:
             batch_data[k, ..., 3:] = np.dot(batch_data[k, ..., 3:].reshape((-1, 3)), rotation_matrix)
 
