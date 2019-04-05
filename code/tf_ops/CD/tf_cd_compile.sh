@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-nvcc=/usr/local/cuda-10.0/bin/nvcc
-cudalib=/usr/local/cuda-10.0/lib64/
+nvcc=/home/dongwool/usr/local/cuda-10.0/bin/nvcc
+cudalib=/home/dongwool/usr/local/cuda-10.0/lib64/
 TF_INC=$(python -c 'import tensorflow as tf; print(tf.sysconfig.get_include())')
 TF_LIB=$(python -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())')
 
